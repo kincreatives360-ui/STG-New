@@ -1,0 +1,8 @@
+{
+  "name": "Kinetic Type Generator",
+  "description": "An interactive kinetic typography generator with real-time text effects, canvas customization, and controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

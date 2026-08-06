@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Kinetic Type Generator"
+description = "A highly sophisticated kinetic typography generator replicating spacetypegenerator.com. Users type text and watch it animate through 23+ parametric effects including 3D cylinder, ribbon, coil, field, stripes, flag, cascade, layers, danger, string, badge, clutter, construct, snap, flash, pow, crash, vessel, shine, boost, and more. Each effect has real-time parameter sliders for radius, speed, wave, rotation, color, weight, and camera controls. Built with Three.js for 3D rendering and Canvas 2D for 2D effects."
+version = "1.0.0"
+id = "artifacts/kinetic-type"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22320
+
+[services.development]
+run = "pnpm --filter @workspace/kinetic-type run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/kinetic-type", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/kinetic-type/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22320"
+BASE_PATH = "/"
